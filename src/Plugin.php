@@ -2,8 +2,6 @@
 
 namespace Hyperion\Api2pdf;
 
-use Hyperion\Api2pdf\Service\Api2PdfService;
-
 class Plugin
 {
     public const CONVERT_HTML_TO_PDF_ACTION = 'convert_html_to_pdf';
@@ -11,14 +9,7 @@ class Plugin
 
     public static function init()
     {
-        do_action(self::CONVERT_HTML_TO_PDF_ACTION, 'Api2PdfService::convertHtmlToPdf', 3);
-        add_menu_page(
-            'Configuration du plugin API2Pdf',
-            'API2PDF',
-            'manage_options',
-            'Admin/Config.php'
-        );
-
+        do_action(self::CONVERT_HTML_TO_PDF_ACTION, 'Hyperion\Api2pdf\Service\Api2PdfService::convertHtmlToPdf', 3);
     }
 
     public static function install()
