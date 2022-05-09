@@ -1,0 +1,19 @@
+{
+    "name": "hyperion/api2pdf",
+    "description": "Plugin permettant d'utiliser l'api en ligne api2pdf pour générer des pdf à partir du html",
+    "type": "plugin",
+    "require": {
+        "api2pdf/api2pdf.php": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hyperion\\Api2pdf\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Grégory COLLIN",
+            "email": "gregory@d4rk0s.net"
+        }
+    ]
+}
