@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Api2pdf for hyperion
+ * Plugin Name: Hyperion - Module API2PDF
  * Plugin URI:
  * Description: Gestion des pdf via api2pdf
  * Version: 0.1
