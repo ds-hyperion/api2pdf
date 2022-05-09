@@ -6,7 +6,7 @@
 ?>
 
 <div class="wrap">
-    <form action="">
+    <form method="POST">
         <label for="api2pdf_apikey">API2Pdf api key : </label>
         <input type="text" id="api2pdf_apikey">
         <input type="submit" value="Sauvegarder">

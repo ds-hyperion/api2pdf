@@ -1,7 +1,7 @@
 {
     "name": "hyperion/api2pdf",
     "description": "Plugin permettant d'utiliser l'api en ligne api2pdf pour générer des pdf à partir du html",
-    "type": "plugin",
+    "type": "wordpress-plugin",
     "require": {
         "api2pdf/api2pdf.php": "^2.0"
     },
