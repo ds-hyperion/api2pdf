@@ -7,7 +7,7 @@
         <table class="form-table">
             <tr>
                 <th scope="row">API2PDF api key</th>
-                <td><input type="text" name="api_namespace" value="<?php echo esc_attr( get_option('hyperion_api2pdf_apikey') ); ?>" /></td>
+                <td><input type="text" name="hyperion_api2pdf_apikey" value="<?php echo esc_attr( get_option('hyperion_api2pdf_apikey') ); ?>" /></td>
             </tr>
         </table>
 
