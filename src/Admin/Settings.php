@@ -21,6 +21,6 @@ class Settings
 
     public static function registerPluginSettings()
     {
-        register_setting(self::SETTINGS_GROUP, 'hyperion_api2pdf_apikey');
+        register_setting(self::SETTINGS_GROUP, \Hyperion\Api2pdf\Plugin::API2PDF_APIKEY_OPTION);
     }
 }
