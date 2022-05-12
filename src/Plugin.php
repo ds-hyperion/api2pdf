@@ -12,16 +12,6 @@ class Plugin
         do_action(self::CONVERT_HTML_TO_PDF_ACTION, 'Hyperion\Api2pdf\Service\Api2PdfService::convertHtmlToPdf', 3);
     }
 
-    public static function addAdminPage()
-    {
-          add_menu_page(
-            'Configuration du plugin API2Pdf',
-            'API2PDF',
-            'manage_options',
-            'Admin/Config.php'
-        );
-    }
-
     public static function install()
     {
         add_option(self::API2PDF_APIKEY_OPTION);

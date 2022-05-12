@@ -11,6 +11,6 @@
  */
 
 add_action('init', '\Hyperion\Api2pdf\Plugin::init');
-add_action('admin_menu', '\Hyperion\Api2pdf\Plugin::addAdminPage');
+add_action('admin_menu', '\Hyperion\Api2pdf\Admin\Settings::createMenu');
 register_activation_hook(__FILE__, '\Hyperion\Api2pdf\Plugin::install');
 register_uninstall_hook(__FILE__, '\Hyperion\Api2pdf\Plugin::uninstall');
