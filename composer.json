@@ -3,7 +3,8 @@
     "description": "Plugin permettant d'utiliser l'api en ligne api2pdf pour générer des pdf à partir du html",
     "type": "wordpress-plugin",
     "require": {
-        "api2pdf/api2pdf.php": "^2.0"
+        "api2pdf/api2pdf.php": "^2.0",
+        "mikehaertl/phpwkhtmltopdf": "^2.5"
     },
     "autoload": {
         "psr-4": {
