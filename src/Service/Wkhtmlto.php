@@ -1,8 +1,9 @@
 <?php
 
-namespace D4rk0snet\CoralAdoption\Service;
+namespace Hyperion\Api2pdf\Service;
 
 //use Imagick;
+use Imagick;
 use mikehaertl\wkhtmlto\Pdf;
 
 class Wkhtmlto
@@ -15,20 +16,22 @@ class Wkhtmlto
         }
     }
 
-//    /**
-//     * @throws \ImagickException
-//     */
-//    public function convertToImage(string $html, string $temporaryImageAbsolutePath)
-//    {
-//        $this->convertToPDF($html, $temporaryImageAbsolutePath.".pdf");
-//
-//        $image = new Imagick();
-//        $image->setResolution(300, 300);
-//        $image->readImage($temporaryImageAbsolutePath.".pdf");
-//        $image->setImageFormat("jpg");
-//        $image->cropImage(2479, 3506, 0, 0);
-//        $image->writeImage($temporaryImageAbsolutePath);
-//    }
+    /**
+     * @throws \ImagickException
+     */
+    public static function convertToImage(string $html, string $temporaryImageAbsolutePath): void
+    {
+        $pdfPath = $temporaryImageAbsolutePath.".pdf";
+        $jpgPath = $temporaryImageAbsolutePath.".jpg";
+        self::convertToPDF($html, $pdfPath);
+
+        $image = new Imagick();
+        $image->setResolution(300, 300);
+        $image->readImage($pdfPath);
+        $image->setImageFormat("jpg");
+        $image->cropImage(2479, 3506, 0, 0);
+        $image->writeImage($jpgPath);
+    }
 
     public static function sendPdf(string $html)
     {
