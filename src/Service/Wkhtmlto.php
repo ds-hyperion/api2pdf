@@ -21,16 +21,16 @@ class Wkhtmlto
      */
     public static function convertToImage(string $html, string $temporaryImageAbsolutePath): void
     {
-        $pdfPath = $temporaryImageAbsolutePath.".pdf";
-        $jpgPath = $temporaryImageAbsolutePath.".jpg";
-        self::convertToPDF($html, $pdfPath);
+//        $pdfPath = $temporaryImageAbsolutePath.".pdf";
+//        $jpgPath = $temporaryImageAbsolutePath.".jpg";
+//        self::convertToPDF($html, $pdfPath);
 
         $image = new Imagick();
         $image->setResolution(300, 300);
-        $image->readImage($pdfPath);
+        $image->readImage($temporaryImageAbsolutePath);
         $image->setImageFormat("jpg");
         $image->cropImage(2479, 3506, 0, 0);
-        $image->writeImage($jpgPath);
+        $image->writeImage($temporaryImageAbsolutePath . ".jpg");
     }
 
     public static function sendPdf(string $html)
