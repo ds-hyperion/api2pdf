@@ -19,18 +19,17 @@ class Wkhtmlto
     /**
      * @throws \ImagickException
      */
-    public static function convertToImage(string $html, string $temporaryImageAbsolutePath): void
+    public static function convertToImage(string $temporaryImageAbsolutePath): void
     {
-//        $pdfPath = $temporaryImageAbsolutePath.".pdf";
-//        $jpgPath = $temporaryImageAbsolutePath.".jpg";
-//        self::convertToPDF($html, $pdfPath);
+        $pdfPath = $temporaryImageAbsolutePath.".pdf";
+        $jpgPath = $temporaryImageAbsolutePath.".jpg";
 
         $image = new Imagick();
         $image->setResolution(300, 300);
-        $image->readImage($temporaryImageAbsolutePath);
+        $image->readImage($pdfPath);
         $image->setImageFormat("jpg");
         $image->cropImage(2479, 3506, 0, 0);
-        $image->writeImage($temporaryImageAbsolutePath . ".jpg");
+        $image->writeImage($jpgPath);
     }
 
     public static function sendPdf(string $html)
