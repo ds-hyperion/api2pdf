@@ -2,7 +2,6 @@
 
 namespace Hyperion\Api2pdf\Service;
 
-//use Imagick;
 use Imagick;
 use mikehaertl\wkhtmlto\Pdf;
 
@@ -22,15 +21,16 @@ class Wkhtmlto
     public static function convertToImage(string $temporaryImageAbsolutePath, string $fileName): void
     {
         $pdfPath = $temporaryImageAbsolutePath.".pdf";
-        $jpgPath = $temporaryImageAbsolutePath.".jpg";
+        $jpgPath = $temporaryImageAbsolutePath.".jpeg";
 
         $image = new Imagick();
         $image->setResolution(300, 300);
         $image->readImage($pdfPath);
-        $image->setImageFormat("jpg");
-        $image->cropImage(2479, 3506, 0, 0);
+        $image->setImageFormat("jpeg");
         $jpgPath = self::checkPath($fileName, $jpgPath);
         $image->writeImage($jpgPath);
+        $image->clear();
+        $image->destroy();
     }
 
     public static function sendPdf(string $html)
