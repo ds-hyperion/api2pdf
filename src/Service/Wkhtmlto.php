@@ -25,6 +25,11 @@ class Wkhtmlto
         $jpgPath = $temporaryImageAbsolutePath.".jpg";
 
         $image = new Imagick();
+        $image->setResourceLimit(Imagick::RESOURCETYPE_MEMORY, 256);
+        $image->setResourceLimit(Imagick::RESOURCETYPE_MAP, 256);
+        $image->setResourceLimit(Imagick::RESOURCETYPE_AREA, 1512);
+        $image->setResourceLimit(Imagick::RESOURCETYPE_FILE, 768);
+        $image->setResourceLimit(Imagick::RESOURCETYPE_DISK, -1);
         $image->setResolution(300, 300);
         $image->readImage($pdfPath);
         $image->setImageFormat("jpg");
