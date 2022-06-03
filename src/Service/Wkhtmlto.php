@@ -19,7 +19,7 @@ class Wkhtmlto
     /**
      * @throws \ImagickException
      */
-    public static function convertToImage(string $temporaryImageAbsolutePath): void
+    public static function convertToImage(string $temporaryImageAbsolutePath, string $fileName): void
     {
         $pdfPath = $temporaryImageAbsolutePath.".pdf";
         $jpgPath = $temporaryImageAbsolutePath.".jpg";
@@ -29,6 +29,7 @@ class Wkhtmlto
         $image->readImage($pdfPath);
         $image->setImageFormat("jpg");
         $image->cropImage(2479, 3506, 0, 0);
+        $jpgPath = self::checkPath($fileName, $jpgPath);
         $image->writeImage($jpgPath);
     }
 
@@ -56,5 +57,17 @@ class Wkhtmlto
         $pdf = new Pdf($html);
         $pdf->setOptions($options);
         return $pdf;
+    }
+
+    private static function checkPath(string $filename, string $fullpath): string
+    {
+        $index = 1;
+        while (file_exists($fullpath)) {
+            $info = pathinfo($fullpath);
+            $fullpath = $info['dirname'] . '/' . $filename
+                . '(' . $index++ . ')'
+                . '.' . $info['extension'];
+        }
+        return $fullpath;
     }
 }
